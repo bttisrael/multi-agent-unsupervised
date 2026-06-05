@@ -1,0 +1,30 @@
+[
+  {
+    "step": "Ingestor",
+    "result": "INGESTION_SUCCESS: shape=(541909, 8), file=unsupervised_outputs\\df1_silver.parquet"
+  },
+  {
+    "step": "Data Profiler",
+    "result": "PROFILE_SUCCESS: entity_col=customerid, date_col=invoicedate, monetary_cols=['quantity', 'unitprice'], file=unsupervised_outputs\\Data_Profile.md"
+  },
+  {
+    "step": "Feature Engineer",
+    "result": "FEATURES_SUCCESS: shape=(4372, 23), file=unsupervised_outputs\\df2_customer_features.parquet"
+  },
+  {
+    "step": "Clustering Scientist",
+    "result": "CLUSTERING_SUCCESS: best=KMeans k=3, clusters=3, silhouette=0.2197, file=unsupervised_outputs\\df4_clustered_customers.parquet"
+  },
+  {
+    "step": "Segment Interpreter",
+    "result": "SEGMENT_SUCCESS: segments=3, file=unsupervised_outputs\\Segment_Profiles.md"
+  },
+  {
+    "step": "Hypothesis Validator",
+    "result": "HYPOTHESIS_SUCCESS: tests=12, file=unsupervised_outputs\\Segment_Hypothesis_Validation.md"
+  },
+  {
+    "step": "Deliverable Generator",
+    "result": "DELIVERABLES_SUCCESS: app=unsupervised_outputs\\streamlit_segment_app.py, notebook=unsupervised_outputs\\analysis_notebook_unsupervised.ipynb, readme=unsupervised_outputs\\README_unsupervised.md"
+  }
+]

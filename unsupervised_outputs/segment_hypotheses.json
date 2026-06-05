@@ -1,0 +1,98 @@
+[
+  {
+    "hypothesis": "Segments differ significantly in total_revenue.",
+    "feature": "total_revenue",
+    "test": "Kruskal-Wallis",
+    "p_value": 0.0,
+    "verdict": "TRUE",
+    "business_insight": "Cluster 0 has the highest median total_revenue; this feature helps explain segment behavior."
+  },
+  {
+    "hypothesis": "Segments differ significantly in n_orders.",
+    "feature": "n_orders",
+    "test": "Kruskal-Wallis",
+    "p_value": 0.0,
+    "verdict": "TRUE",
+    "business_insight": "Cluster 0 has the highest median n_orders; this feature helps explain segment behavior."
+  },
+  {
+    "hypothesis": "Segments differ significantly in recency_days.",
+    "feature": "recency_days",
+    "test": "Kruskal-Wallis",
+    "p_value": 5.216136203035451e-138,
+    "verdict": "TRUE",
+    "business_insight": "Cluster 1 has the highest median recency_days; this feature helps explain segment behavior."
+  },
+  {
+    "hypothesis": "Segments differ significantly in avg_order_value.",
+    "feature": "avg_order_value",
+    "test": "Kruskal-Wallis",
+    "p_value": 8.421129514241106e-267,
+    "verdict": "TRUE",
+    "business_insight": "Cluster 0 has the highest median avg_order_value; this feature helps explain segment behavior."
+  },
+  {
+    "hypothesis": "Segments differ significantly in product_diversity.",
+    "feature": "product_diversity",
+    "test": "Kruskal-Wallis",
+    "p_value": 0.0,
+    "verdict": "TRUE",
+    "business_insight": "Cluster 0 has the highest median product_diversity; this feature helps explain segment behavior."
+  },
+  {
+    "hypothesis": "Segments differ significantly in return_rate.",
+    "feature": "return_rate",
+    "test": "Kruskal-Wallis",
+    "p_value": 1.9469279171372935e-101,
+    "verdict": "TRUE",
+    "business_insight": "Cluster 0 has the highest median return_rate; this feature helps explain segment behavior."
+  },
+  {
+    "hypothesis": "Segments differ significantly in frequency_per_month.",
+    "feature": "frequency_per_month",
+    "test": "Kruskal-Wallis",
+    "p_value": 1.5160641003803214e-66,
+    "verdict": "TRUE",
+    "business_insight": "Cluster 1 has the highest median frequency_per_month; this feature helps explain segment behavior."
+  },
+  {
+    "hypothesis": "Segments differ significantly in total_quantity.",
+    "feature": "total_quantity",
+    "test": "Kruskal-Wallis",
+    "p_value": 0.0,
+    "verdict": "TRUE",
+    "business_insight": "Cluster 0 has the highest median total_quantity; this feature helps explain segment behavior."
+  },
+  {
+    "hypothesis": "Segments differ significantly in customerid.",
+    "feature": "customerid",
+    "test": "Kruskal-Wallis",
+    "p_value": 4.6892574450635886e-29,
+    "verdict": "TRUE",
+    "business_insight": "Cluster 2 has the highest median customerid; this feature helps explain segment behavior."
+  },
+  {
+    "hypothesis": "Segments differ significantly in n_transactions.",
+    "feature": "n_transactions",
+    "test": "Kruskal-Wallis",
+    "p_value": 0.0,
+    "verdict": "TRUE",
+    "business_insight": "Cluster 0 has the highest median n_transactions; this feature helps explain segment behavior."
+  },
+  {
+    "hypothesis": "Segments differ significantly in avg_revenue_per_line.",
+    "feature": "avg_revenue_per_line",
+    "test": "Kruskal-Wallis",
+    "p_value": 0.0,
+    "verdict": "TRUE",
+    "business_insight": "Cluster 0 has the highest median avg_revenue_per_line; this feature helps explain segment behavior."
+  },
+  {
+    "hypothesis": "Segments differ significantly in median_revenue_per_line.",
+    "feature": "median_revenue_per_line",
+    "test": "Kruskal-Wallis",
+    "p_value": 0.0,
+    "verdict": "TRUE",
+    "business_insight": "Cluster 0 has the highest median median_revenue_per_line; this feature helps explain segment behavior."
+  }
+]

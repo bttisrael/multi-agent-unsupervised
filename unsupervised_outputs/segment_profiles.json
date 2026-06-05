@@ -1,0 +1,424 @@
+{
+  "project": "Customer Segmentation & Revenue Growth Intelligence",
+  "n_entities": 4372,
+  "segments": [
+    {
+      "cluster": 0,
+      "size": 1685,
+      "size_pct": 0.3854,
+      "metrics": {
+        "customerid": {
+          "median": 14934.0,
+          "overall_median": 15300.5,
+          "ratio_vs_overall": 0.976
+        },
+        "n_transactions": {
+          "median": 90.0,
+          "overall_median": 42.0,
+          "ratio_vs_overall": 2.143
+        },
+        "total_revenue": {
+          "median": 1993.7,
+          "overall_median": 665.315,
+          "ratio_vs_overall": 2.997
+        },
+        "avg_revenue_per_line": {
+          "median": 20.3516,
+          "overall_median": 17.2324,
+          "ratio_vs_overall": 1.181
+        },
+        "median_revenue_per_line": {
+          "median": 16.8,
+          "overall_median": 15.3,
+          "ratio_vs_overall": 1.098
+        },
+        "std_revenue_per_line": {
+          "median": 16.4713,
+          "overall_median": 9.7459,
+          "ratio_vs_overall": 1.69
+        },
+        "return_rate": {
+          "median": 0.0102,
+          "overall_median": 0.0,
+          "ratio_vs_overall": null
+        },
+        "n_orders": {
+          "median": 6.0,
+          "overall_median": 3.0,
+          "ratio_vs_overall": 2.0
+        },
+        "avg_lines_per_order": {
+          "median": 16.0,
+          "overall_median": 14.6,
+          "ratio_vs_overall": 1.096
+        },
+        "avg_order_value": {
+          "median": 368.755,
+          "overall_median": 241.97,
+          "ratio_vs_overall": 1.524
+        },
+        "median_order_value": {
+          "median": 342.46,
+          "overall_median": 236.1625,
+          "ratio_vs_overall": 1.45
+        },
+        "max_order_value": {
+          "median": 709.63,
+          "overall_median": 365.925,
+          "ratio_vs_overall": 1.939
+        },
+        "total_quantity": {
+          "median": 1176.0,
+          "overall_median": 374.5,
+          "ratio_vs_overall": 3.14
+        },
+        "avg_quantity": {
+          "median": 11.8604,
+          "overall_median": 9.6344,
+          "ratio_vs_overall": 1.231
+        },
+        "product_diversity": {
+          "median": 66.0,
+          "overall_median": 35.0,
+          "ratio_vs_overall": 1.886
+        },
+        "revenue_per_product": {
+          "median": 27.9974,
+          "overall_median": 19.6965,
+          "ratio_vs_overall": 1.421
+        },
+        "country_diversity": {
+          "median": 1.0,
+          "overall_median": 1.0,
+          "ratio_vs_overall": 1.0
+        },
+        "recency_days": {
+          "median": 62.0,
+          "overall_median": 122.0,
+          "ratio_vs_overall": 0.508
+        },
+        "customer_lifetime_days": {
+          "median": 186.0,
+          "overall_median": 32.0,
+          "ratio_vs_overall": 5.812
+        },
+        "frequency_per_month": {
+          "median": 1.5,
+          "overall_median": 4.6875,
+          "ratio_vs_overall": 0.32
+        },
+        "monetary_log": {
+          "median": 7.5982,
+          "overall_median": 6.5018,
+          "ratio_vs_overall": 1.169
+        },
+        "frequency_log": {
+          "median": 1.9459,
+          "overall_median": 1.3863,
+          "ratio_vs_overall": 1.404
+        },
+        "recency_log": {
+          "median": 4.1431,
+          "overall_median": 4.8122,
+          "ratio_vs_overall": 0.861
+        }
+      },
+      "drivers_high": [
+        "customer_lifetime_days",
+        "total_quantity",
+        "total_revenue",
+        "n_transactions",
+        "n_orders"
+      ],
+      "drivers_low": [
+        "frequency_per_month",
+        "recency_days"
+      ],
+      "segment_name": "Established Champions",
+      "recommended_action": "Launch quarterly executive business reviews and dedicated account management to prevent attrition. Implement early warning system for frequency decline and create VIP reactivation offers for those showing 30+ day gaps.",
+      "persona": "Long-tenured customers with high cumulative spend and transaction volume, but lower recent activity frequency. These are your legacy revenue pillars.",
+      "business_risk": "Complacency leading to silent churn of high-LTV customers. Low frequency signals potential disengagement despite strong history.",
+      "business_opportunity": "38.5% of base represents proven buyers with established trust. High potential for premium tier upgrades, annual contracts, and referral programs."
+    },
+    {
+      "cluster": 1,
+      "size": 1738,
+      "size_pct": 0.3975,
+      "metrics": {
+        "customerid": {
+          "median": 15243.5,
+          "overall_median": 15300.5,
+          "ratio_vs_overall": 0.996
+        },
+        "n_transactions": {
+          "median": 16.0,
+          "overall_median": 42.0,
+          "ratio_vs_overall": 0.381
+        },
+        "total_revenue": {
+          "median": 329.75,
+          "overall_median": 665.315,
+          "ratio_vs_overall": 0.496
+        },
+        "avg_revenue_per_line": {
+          "median": 18.3559,
+          "overall_median": 17.2324,
+          "ratio_vs_overall": 1.065
+        },
+        "median_revenue_per_line": {
+          "median": 16.5,
+          "overall_median": 15.3,
+          "ratio_vs_overall": 1.078
+        },
+        "std_revenue_per_line": {
+          "median": 9.1945,
+          "overall_median": 9.7459,
+          "ratio_vs_overall": 0.943
+        },
+        "return_rate": {
+          "median": 0.0,
+          "overall_median": 0.0,
+          "ratio_vs_overall": null
+        },
+        "n_orders": {
+          "median": 2.0,
+          "overall_median": 3.0,
+          "ratio_vs_overall": 0.667
+        },
+        "avg_lines_per_order": {
+          "median": 9.3333,
+          "overall_median": 14.6,
+          "ratio_vs_overall": 0.639
+        },
+        "avg_order_value": {
+          "median": 187.8375,
+          "overall_median": 241.97,
+          "ratio_vs_overall": 0.776
+        },
+        "median_order_value": {
+          "median": 185.9225,
+          "overall_median": 236.1625,
+          "ratio_vs_overall": 0.787
+        },
+        "max_order_value": {
+          "median": 259.31,
+          "overall_median": 365.925,
+          "ratio_vs_overall": 0.709
+        },
+        "total_quantity": {
+          "median": 175.5,
+          "overall_median": 374.5,
+          "ratio_vs_overall": 0.469
+        },
+        "avg_quantity": {
+          "median": 10.3944,
+          "overall_median": 9.6344,
+          "ratio_vs_overall": 1.079
+        },
+        "product_diversity": {
+          "median": 15.0,
+          "overall_median": 35.0,
+          "ratio_vs_overall": 0.429
+        },
+        "revenue_per_product": {
+          "median": 19.6898,
+          "overall_median": 19.6965,
+          "ratio_vs_overall": 1.0
+        },
+        "country_diversity": {
+          "median": 1.0,
+          "overall_median": 1.0,
+          "ratio_vs_overall": 1.0
+        },
+        "recency_days": {
+          "median": 184.0,
+          "overall_median": 122.0,
+          "ratio_vs_overall": 1.508
+        },
+        "customer_lifetime_days": {
+          "median": 1.0,
+          "overall_median": 32.0,
+          "ratio_vs_overall": 0.031
+        },
+        "frequency_per_month": {
+          "median": 30.0,
+          "overall_median": 4.6875,
+          "ratio_vs_overall": 6.4
+        },
+        "monetary_log": {
+          "median": 5.8014,
+          "overall_median": 6.5018,
+          "ratio_vs_overall": 0.892
+        },
+        "frequency_log": {
+          "median": 1.0986,
+          "overall_median": 1.3863,
+          "ratio_vs_overall": 0.792
+        },
+        "recency_log": {
+          "median": 5.2204,
+          "overall_median": 4.8122,
+          "ratio_vs_overall": 1.085
+        }
+      },
+      "drivers_high": [
+        "frequency_per_month",
+        "recency_days"
+      ],
+      "drivers_low": [
+        "customer_lifetime_days",
+        "n_transactions",
+        "product_diversity",
+        "total_quantity",
+        "total_revenue"
+      ],
+      "segment_name": "Dormant Prospects",
+      "recommended_action": "Deploy automated 3-touch onboarding sequence with educational content and first-purchase incentives. Implement win-back campaigns for those 60+ days inactive. Avoid heavy discounting—focus on value demonstration.",
+      "persona": "Recent but infrequent buyers with minimal transaction history and low product engagement. High recency suggests they haven't churned yet but never fully activated.",
+      "business_risk": "Largest segment (39.8%) with weakest engagement metrics. High probability of permanent churn without intervention.",
+      "business_opportunity": "Untapped volume play. Even modest conversion improvements yield significant revenue given segment size. Low acquisition cost already sunk."
+    },
+    {
+      "cluster": 2,
+      "size": 949,
+      "size_pct": 0.2171,
+      "metrics": {
+        "customerid": {
+          "median": 15988.0,
+          "overall_median": 15300.5,
+          "ratio_vs_overall": 1.045
+        },
+        "n_transactions": {
+          "median": 72.0,
+          "overall_median": 42.0,
+          "ratio_vs_overall": 1.714
+        },
+        "total_revenue": {
+          "median": 423.04,
+          "overall_median": 665.315,
+          "ratio_vs_overall": 0.636
+        },
+        "avg_revenue_per_line": {
+          "median": 6.035,
+          "overall_median": 17.2324,
+          "ratio_vs_overall": 0.35
+        },
+        "median_revenue_per_line": {
+          "median": 4.05,
+          "overall_median": 15.3,
+          "ratio_vs_overall": 0.265
+        },
+        "std_revenue_per_line": {
+          "median": 5.5517,
+          "overall_median": 9.7459,
+          "ratio_vs_overall": 0.57
+        },
+        "return_rate": {
+          "median": 0.0,
+          "overall_median": 0.0,
+          "ratio_vs_overall": null
+        },
+        "n_orders": {
+          "median": 2.0,
+          "overall_median": 3.0,
+          "ratio_vs_overall": 0.667
+        },
+        "avg_lines_per_order": {
+          "median": 31.625,
+          "overall_median": 14.6,
+          "ratio_vs_overall": 2.166
+        },
+        "avg_order_value": {
+          "median": 188.14,
+          "overall_median": 241.97,
+          "ratio_vs_overall": 0.778
+        },
+        "median_order_value": {
+          "median": 180.35,
+          "overall_median": 236.1625,
+          "ratio_vs_overall": 0.764
+        },
+        "max_order_value": {
+          "median": 260.92,
+          "overall_median": 365.925,
+          "ratio_vs_overall": 0.713
+        },
+        "total_quantity": {
+          "median": 262.0,
+          "overall_median": 374.5,
+          "ratio_vs_overall": 0.7
+        },
+        "avg_quantity": {
+          "median": 3.3605,
+          "overall_median": 9.6344,
+          "ratio_vs_overall": 0.349
+        },
+        "product_diversity": {
+          "median": 62.0,
+          "overall_median": 35.0,
+          "ratio_vs_overall": 1.771
+        },
+        "revenue_per_product": {
+          "median": 7.2667,
+          "overall_median": 19.6965,
+          "ratio_vs_overall": 0.369
+        },
+        "country_diversity": {
+          "median": 1.0,
+          "overall_median": 1.0,
+          "ratio_vs_overall": 1.0
+        },
+        "recency_days": {
+          "median": 158.0,
+          "overall_median": 122.0,
+          "ratio_vs_overall": 1.295
+        },
+        "customer_lifetime_days": {
+          "median": 1.0,
+          "overall_median": 32.0,
+          "ratio_vs_overall": 0.031
+        },
+        "frequency_per_month": {
+          "median": 30.0,
+          "overall_median": 4.6875,
+          "ratio_vs_overall": 6.4
+        },
+        "monetary_log": {
+          "median": 6.0498,
+          "overall_median": 6.5018,
+          "ratio_vs_overall": 0.93
+        },
+        "frequency_log": {
+          "median": 1.0986,
+          "overall_median": 1.3863,
+          "ratio_vs_overall": 0.792
+        },
+        "recency_log": {
+          "median": 5.0689,
+          "overall_median": 4.8122,
+          "ratio_vs_overall": 1.053
+        }
+      },
+      "drivers_high": [
+        "frequency_per_month",
+        "avg_lines_per_order",
+        "product_diversity",
+        "n_transactions",
+        "recency_days"
+      ],
+      "drivers_low": [
+        "customer_lifetime_days",
+        "median_revenue_per_line",
+        "avg_quantity",
+        "avg_revenue_per_line",
+        "revenue_per_product"
+      ],
+      "segment_name": "Active Explorers",
+      "recommended_action": "Prioritize for cross-sell and bundle campaigns targeting premium SKU migration. Use personalized recommendations based on browsing behavior. Test 'complete the collection' and tiered loyalty rewards to increase AOV.",
+      "persona": "Frequent, recent buyers with high product diversity and basket complexity, but lower per-item spend. They shop often across categories but favor volume over premium items.",
+      "business_risk": "Price-sensitive segment may be vulnerable to competitive promotions. Low revenue per line suggests margin pressure.",
+      "business_opportunity": "21.7% of customers showing strong engagement signals. High visit frequency creates multiple conversion moments. Upsell potential to shift mix toward higher-margin products."
+    }
+  ],
+  "executive_summary": "Customer base shows clear three-tier structure requiring differentiated RGM strategies. **Established Champions (38.5%)** are revenue foundation but showing frequency warning signs—prioritize retention and relationship deepening. **Dormant Prospects (39.8%)** represent the largest segment with lowest engagement—focus on cost-efficient activation and churn prevention. **Active Explorers (21.7%)** demonstrate strong behavioral loyalty but low wallet share per transaction—optimize for margin expansion through strategic upselling. Immediate priority: prevent Champion erosion while activating the large Dormant base. Quick win: bundle campaigns for Explorers can drive near-term AOV lift."
+}
