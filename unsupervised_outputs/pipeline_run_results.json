@@ -1,18 +1,34 @@
 [
   {
     "step": "Ingestor",
-    "result": "INGESTION_SUCCESS: shape=(1000000, 9), file=unsupervised_outputs\\df1_silver.parquet"
+    "result": "INGESTION_SUCCESS: shape=(541909, 8), file=unsupervised_outputs\\df1_silver.parquet"
   },
   {
     "step": "Data Profiler",
-    "result": "PROFILE_SUCCESS: entity_col=customerid, date_col=transactiondate, monetary_cols=['transactionamount_inr', 'custaccountbalance'], file=unsupervised_outputs\\Data_Profile.md"
+    "result": "PROFILE_SUCCESS: entity_col=customerid, date_col=invoicedate, monetary_cols=['quantity', 'unitprice'], file=unsupervised_outputs\\Data_Profile.md"
   },
   {
     "step": "Feature Engineer",
-    "result": "FEATURES_SUCCESS: shape=(849652, 23), file=unsupervised_outputs\\df2_customer_features.parquet"
+    "result": "FEATURES_SUCCESS: shape=(4372, 23), file=unsupervised_outputs\\df2_customer_features.parquet"
   },
   {
     "step": "Clustering Scientist",
-    "result": "CLUSTERING_ERROR: Shape of passed values is (849652, 18), indices imply (849652, 22)\nTraceback (most recent call last):\n  File \"C:\\Users\\israb\\Documents\\multi-agent-unsupervised\\multi_agent_ds_unsupervised_v2_2.py\", line 696, in run_clustering_models\n    matrix, prep_info = prepare_cluster_matrix(features)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\israb\\Documents\\multi-agent-unsupervised\\multi_agent_ds_unsupervised_v2_2.py\", line 742, in prepare_cluster_matrix\n    matrix = pd.DataFrame(arr, columns=feature_cols)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\israb\\Documents\\multi-agent-unsupervised\\.venv\\Lib\\site-packages\\pandas\\core\\frame.py\", line 814, in __init__\n    mgr = ndarray_to_mgr(\n          ^^^^^^^^^^^^^^^\n  File \"C:\\Users\\israb\\Documents\\multi-agent-unsupervised\\.venv\\Lib\\site-packages\\pandas\\core\\internals\\construction.py\", line 299, in ndarray_to_mgr\n    _check_values_indices_shape_match(values, index, columns)\n  File \"C:\\Users\\israb\\Documents\\multi-agent-unsupervised\\.venv\\Lib\\site-packages\\pandas\\core\\internals\\construction.py\", line 372, in _check_values_indices_shape_match\n    raise ValueError(f\"Shape of passed values is {passed}, indices imply {implied}\")\nValueError: Shape of passed values is (849652, 18), indices imply (849652, 22)\n"
+    "result": "CLUSTERING_SUCCESS: best=KMeans k=3, clusters=3, silhouette=0.2197, file=unsupervised_outputs\\df4_clustered_customers.parquet"
+  },
+  {
+    "step": "Segment Interpreter",
+    "result": "SEGMENT_SUCCESS: segments=3, file=unsupervised_outputs\\Segment_Profiles.md"
+  },
+  {
+    "step": "Hypothesis Validator",
+    "result": "HYPOTHESIS_SUCCESS: tests=12, file=unsupervised_outputs\\Segment_Hypothesis_Validation.md"
+  },
+  {
+    "step": "Deliverable Generator",
+    "result": "DELIVERABLES_SUCCESS: html=unsupervised_outputs\\dashboard.html, app=unsupervised_outputs\\streamlit_segment_app.py, notebook=unsupervised_outputs\\analysis_notebook_unsupervised.ipynb, readme=unsupervised_outputs\\README_unsupervised.md"
+  },
+  {
+    "step": "GitOps Agent",
+    "result": "GITOPS_SUCCESS: repository updated and pushed to origin/main.\n[main 12f9269] Auto-refresh unsupervised segmentation project for hellbuoy/online-retail-customer-clustering\n 11 files changed, 6162 insertions(+), 82 deletions(-)\n create mode 100644 multi_agent_ds_unsupervised_v2_4.py\n\nTo https://github.com/bttisrael/multi-agent-unsupervised.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/bttisrael/multi-agent-unsupervised.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\n"
   }
 ]
