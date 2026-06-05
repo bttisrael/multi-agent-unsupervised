@@ -19,7 +19,7 @@
     "unitprice"
   ],
   "clustering_unit": "customer",
-  "strategy": "Customer-level segmentation for RGM analytics. 4372 unique customers provide sufficient granularity for behavioral segmentation. Will aggregate transaction data to create RFM features (recency, frequency, monetary), product affinity, geographic patterns, and purchase behavior metrics. 25% null customerid requires handling (exclude or separate segment). Negative quantities indicate returns - important feature for churn/satisfaction analysis."
+  "strategy": "Customer-level segmentation for RGM analytics. With 4372 unique customers and transactional data spanning invoices, products, and geography, we can derive RFM features (recency, frequency, monetary), basket composition, geographic concentration, and product diversity metrics. The 25% null customerid rate requires handling (exclude or separate segment). This enables actionable commercial prioritization by identifying high-value, at-risk, and growth-potential customer segments."
 }
 ```
 

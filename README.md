@@ -93,7 +93,7 @@ Kaggle / Local Dataset
     "unitprice"
   ],
   "clustering_unit": "customer",
-  "strategy": "Customer-level segmentation for RGM analytics. 4372 unique customers provide sufficient granularity for behavioral segmentation. Will aggregate transaction data to create RFM features (recency, frequency, monetary), product affinity, geographic patterns, and purchase behavior metrics. 25% null customerid requires handling (exclude or separate segment). Negative quantities indicate returns - important feature for churn/satisfaction analysis."
+  "strategy": "Customer-level segmentation for RGM analytics. With 4372 unique customers and transactional data spanning invoices, products, and geography, we can derive RFM features (recency, frequency, monetary), basket composition, geographic concentration, and product diversity metrics. The 25% null customerid rate requires handling (exclude or separate segment). This enables actionable commercial prioritization by identifying high-value, at-risk, and growth-potential customer segments."
 }
 ```
 
@@ -157,10 +157,10 @@ Agglomerative k=5         5      0.1323          1.7062           844.5064      
 
 The model output is translated into business-friendly segments and actions.
 
- Cluster                     Segment  Size Size %                                                                                                                                                                                                    Recommended Action
-       0       Established Champions 1,685  38.5%                     Implement VIP retention program with dedicated account management, exclusive early access to new products, and quarterly business reviews to identify cross-sell opportunities and prevent churn.
-       1 Dormant & Occasional Buyers 1,738  39.8%                         Deploy automated win-back campaigns with time-limited incentives (15-20% discount on next purchase) and personalized onboarding sequences to drive second and third purchases within 60 days.
-       2      Active Variety Seekers   949  21.7% Launch bundling and volume discount strategies to increase basket size. Deploy AI-powered recommendation engine emphasizing complementary products and 'complete the set' campaigns to drive revenue per transaction.
+ Cluster                     Segment  Size Size %                                                                                                                                                                                                         Recommended Action
+       0       Established Champions 1,685  38.5%                          Implement VIP retention program with dedicated account management, exclusive early access to new products, and quarterly business reviews to identify cross-sell opportunities and prevent churn.
+       1 Dormant & Occasional Buyers 1,738  39.8%                              Deploy automated win-back campaigns with time-limited incentives (15-20% discount on next purchase) and personalized onboarding sequences to drive second and third purchases within 60 days.
+       2      Active Variety Seekers   949  21.7% Launch bundle and upsell campaigns targeting higher-margin SKUs within their preferred categories. Use personalized recommendations to trade customers up from low to mid-tier products with 'complete the set' messaging.
 
 The objective is to move beyond “Cluster 0, Cluster 1, Cluster 2” and generate usable segment intelligence for business teams.
 
