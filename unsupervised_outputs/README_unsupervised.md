@@ -93,7 +93,7 @@ Kaggle / Local Dataset
     "unitprice"
   ],
   "clustering_unit": "customer",
-  "strategy": "Customer-level segmentation for RGM analytics. 4372 unique customers provide sufficient granularity for behavioral segmentation. Will aggregate transaction data to create RFM features (recency, frequency, monetary), product diversity, geography, and purchase patterns per customer. 25% null customerid requires handling (exclude or separate segment). Negative quantities indicate returns - important feature for churn/satisfaction analysis."
+  "strategy": "Customer-level segmentation for RGM analytics. 4372 unique customers provide sufficient granularity for behavioral segmentation. Will aggregate transaction data to create RFM features (recency, frequency, monetary), product affinity, geographic patterns, and purchase behavior metrics. 25% null customerid requires handling (exclude or separate segment). Negative quantities indicate returns - important feature for churn/satisfaction analysis."
 }
 ```
 
@@ -157,10 +157,10 @@ Agglomerative k=5         5      0.1323          1.7062           844.5064      
 
 The model output is translated into business-friendly segments and actions.
 
- Cluster                     Segment  Size Size %                                                                                                                                                                                                         Recommended Action
-       0       Established Champions 1,685  38.5%                          Implement VIP retention program with dedicated account management, exclusive early access to new products, and quarterly business reviews to identify cross-sell opportunities and prevent churn.
-       1 Dormant & Occasional Buyers 1,738  39.8%                              Deploy automated win-back campaigns with time-limited incentives (15-20% discount on next purchase) and personalized onboarding sequences to drive second and third purchases within 60 days.
-       2      Active Variety Seekers   949  21.7% Launch bundle and upsell campaigns targeting higher-margin SKUs within their preferred categories. Use personalized recommendations to trade customers up from low to mid-tier products with 'complete the set' messaging.
+ Cluster                     Segment  Size Size %                                                                                                                                                                                                    Recommended Action
+       0       Established Champions 1,685  38.5%                     Implement VIP retention program with dedicated account management, exclusive early access to new products, and quarterly business reviews to identify cross-sell opportunities and prevent churn.
+       1 Dormant & Occasional Buyers 1,738  39.8%                         Deploy automated win-back campaigns with time-limited incentives (15-20% discount on next purchase) and personalized onboarding sequences to drive second and third purchases within 60 days.
+       2      Active Variety Seekers   949  21.7% Launch bundling and volume discount strategies to increase basket size. Deploy AI-powered recommendation engine emphasizing complementary products and 'complete the set' campaigns to drive revenue per transaction.
 
 The objective is to move beyond “Cluster 0, Cluster 1, Cluster 2” and generate usable segment intelligence for business teams.
 
@@ -199,11 +199,23 @@ This project converts unsupervised machine learning into actions:
 
 ---
 
-## 9. Streamlit App
+## 9. HTML Dashboard and Streamlit App
 
-The pipeline generates an interactive Streamlit app for segment exploration.
+The pipeline generates two ways to consume the results:
 
-Run locally:
+### Static HTML Dashboard
+
+The easiest portfolio deliverable is the static HTML dashboard:
+
+```text
+dashboard.html
+```
+
+This file can be opened directly in any browser and published with GitHub Pages, with no Streamlit Cloud deployment required.
+
+### Optional Streamlit App
+
+For local interactive exploration, run:
 
 ```bash
 streamlit run streamlit_segment_app.py
@@ -231,7 +243,8 @@ The app allows users to:
 | `Segment_Profiles.md` | Business explanation of each segment |
 | `Business_Strategy.md` | Recommended actions by segment |
 | `Segment_Hypothesis_Validation.md` | Statistical validation of segment differences |
-| `streamlit_segment_app.py` | Interactive Streamlit app |
+| `dashboard.html` | Static HTML dashboard for browser/GitHub Pages |
+| `streamlit_segment_app.py` | Optional interactive Streamlit app |
 | `analysis_notebook_unsupervised.ipynb` | Reproducible notebook |
 | `README_unsupervised.md` | Generated project documentation |
 
