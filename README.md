@@ -93,7 +93,7 @@ Kaggle / Local Dataset
     "unitprice"
   ],
   "clustering_unit": "customer",
-  "strategy": "Customer-level segmentation for RGM analytics. 4372 unique customers provide sufficient granularity for behavioral segmentation. Will aggregate transaction data to create RFM features (recency, frequency, monetary), product diversity, return behavior (negative quantities), and geographic patterns. 25% null customerid requires handling - exclude from clustering or impute based on invoice patterns. Focus on revenue drivers and purchase patterns to enable targeted commercial actions."
+  "strategy": "Customer-level segmentation for RGM analytics. 4372 unique customers provide sufficient granularity for behavioral segmentation. Will aggregate transaction data to create RFM features (recency, frequency, monetary), product diversity, geography, and purchase patterns per customer. 25% null customerid requires handling (exclude or separate segment). Negative quantities indicate returns - important feature for churn/satisfaction analysis."
 }
 ```
 
@@ -157,10 +157,10 @@ Agglomerative k=5         5      0.1323          1.7062           844.5064      
 
 The model output is translated into business-friendly segments and actions.
 
- Cluster                Segment  Size Size %                                                                                                                                                                                 Recommended Action
-       0  Established Champions 1,685  38.5%  Implement VIP retention program with dedicated account management, exclusive early access to new products, and quarterly business reviews to identify cross-sell opportunities and prevent churn.
-       1      Dormant Prospects 1,738  39.8%      Deploy automated win-back campaigns with time-limited activation offers (15-20% discount on next purchase). Use email and digital channels to minimize cost while testing product-market fit.
-       2 Active Variety Seekers   949  21.7% Launch targeted bundle campaigns pairing their preferred categories with higher-margin products. Use personalized recommendations to drive premium product trial and increase average order value.
+ Cluster                     Segment  Size Size %                                                                                                                                                                                                         Recommended Action
+       0       Established Champions 1,685  38.5%                          Implement VIP retention program with dedicated account management, exclusive early access to new products, and quarterly business reviews to identify cross-sell opportunities and prevent churn.
+       1 Dormant & Occasional Buyers 1,738  39.8%                              Deploy automated win-back campaigns with time-limited incentives (15-20% discount on next purchase) and personalized onboarding sequences to drive second and third purchases within 60 days.
+       2      Active Variety Seekers   949  21.7% Launch bundle and upsell campaigns targeting higher-margin SKUs within their preferred categories. Use personalized recommendations to trade customers up from low to mid-tier products with 'complete the set' messaging.
 
 The objective is to move beyond “Cluster 0, Cluster 1, Cluster 2” and generate usable segment intelligence for business teams.
 
@@ -269,10 +269,16 @@ Run without Anthropic/Claude:
 python multi_agent_ds_unsupervised_v1.py --no-ai
 ```
 
-Run and push the updated project to GitHub:
+Run and automatically push the updated project to GitHub:
 
 ```bash
-python multi_agent_ds_unsupervised_v1.py --dataset-slug "your/kaggle-dataset" --git-push
+python multi_agent_ds_unsupervised_v2_1.py --dataset-slug "your/kaggle-dataset"
+```
+
+Run without pushing:
+
+```bash
+python multi_agent_ds_unsupervised_v2_1.py --dataset-slug "your/kaggle-dataset" --no-git-push
 ```
 
 ---

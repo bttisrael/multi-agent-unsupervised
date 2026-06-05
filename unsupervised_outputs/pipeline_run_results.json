@@ -26,5 +26,9 @@
   {
     "step": "Deliverable Generator",
     "result": "DELIVERABLES_SUCCESS: app=unsupervised_outputs\\streamlit_segment_app.py, notebook=unsupervised_outputs\\analysis_notebook_unsupervised.ipynb, readme=unsupervised_outputs\\README_unsupervised.md"
+  },
+  {
+    "step": "GitOps Agent",
+    "result": "GITOPS_SUCCESS: committed locally. Push skipped. Use --git-push to push to GitHub."
   }
 ]
