@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Auto Segmenter AI — HTML Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    :root {
+        --bg: #0f172a;
+        --panel: #111827;
+        --panel2: #1f2937;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #38bdf8;
+        --accent2: #22c55e;
+        --warn: #f59e0b;
+        --danger: #ef4444;
+        --border: #334155;
+    }
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+        background: linear-gradient(135deg, #020617 0%, #0f172a 55%, #111827 100%);
+        color: var(--text);
+        line-height: 1.6;
+    }
+    .container {
+        width: min(1180px, 94vw);
+        margin: 0 auto;
+        padding: 32px 0 60px;
+    }
+    .hero {
+        padding: 42px;
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        background: rgba(17, 24, 39, 0.86);
+        box-shadow: 0 20px 70px rgba(0,0,0,0.35);
+    }
+    .hero h1 {
+        font-size: clamp(2rem, 5vw, 4rem);
+        line-height: 1.05;
+        margin: 0 0 18px;
+    }
+    .hero p {
+        color: var(--muted);
+        font-size: 1.1rem;
+        max-width: 900px;
+    }
+    .tag {
+        display: inline-block;
+        color: #082f49;
+        background: var(--accent);
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 6px 12px;
+        margin-bottom: 18px;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin: 24px 0;
+    }
+    .metric-card, .card, .segment-card, .chart-card {
+        border: 1px solid var(--border);
+        background: rgba(17, 24, 39, 0.82);
+        border-radius: 18px;
+        padding: 20px;
+    }
+    .metric-card span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.9rem;
+    }
+    .metric-card strong {
+        display: block;
+        font-size: 1.7rem;
+        margin-top: 6px;
+    }
+    h2 {
+        margin-top: 48px;
+        font-size: 1.8rem;
+    }
+    h3 { margin-top: 0; }
+    .charts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+    .chart-card img {
+        width: 100%;
+        border-radius: 12px;
+        background: white;
+        border: 1px solid var(--border);
+    }
+    .segments {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+    .cluster-pill {
+        display: inline-block;
+        background: rgba(56,189,248,0.14);
+        color: var(--accent);
+        border: 1px solid rgba(56,189,248,0.4);
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+    .segment-size {
+        color: var(--accent2);
+        font-weight: 700;
+    }
+    pre {
+        overflow-x: auto;
+        background: #020617;
+        border: 1px solid var(--border);
+        padding: 18px;
+        border-radius: 14px;
+        color: #cbd5e1;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+    }
+    th, td {
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+        vertical-align: top;
+    }
+    th {
+        background: var(--panel2);
+    }
+    .verdict {
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.8rem;
+    }
+    .true { background: rgba(34,197,94,0.15); color: #86efac; }
+    .false { background: rgba(239,68,68,0.15); color: #fca5a5; }
+    .neutral { background: rgba(245,158,11,0.15); color: #fcd34d; }
+    .footer {
+        margin-top: 48px;
+        color: var(--muted);
+        text-align: center;
+    }
+    @media (max-width: 900px) {
+        .grid, .charts, .segments {
+            grid-template-columns: 1fr;
+        }
+        .hero { padding: 28px; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <section class="hero">
+        <span class="tag">Unsupervised Learning · Customer Segmentation · RGM</span>
+        <h1>Auto Segmenter AI</h1>
+        <p>
+            A multi-agent unsupervised learning pipeline that transforms transactional data into
+            customer-level intelligence, business segment profiles and revenue growth actions.
+        </p>
+    </section>
+
+    <section class="grid">
+        <div class="metric-card"><span>Raw Rows</span><strong>541,909</strong></div>
+        <div class="metric-card"><span>Clustered Entities</span><strong>4,372</strong></div>
+        <div class="metric-card"><span>Features</span><strong>23</strong></div>
+        <div class="metric-card"><span>Best Model</span><strong>KMeans k=3</strong></div>
+        <div class="metric-card"><span>Total Revenue</span><strong>8,911,408</strong></div>
+    </section>
+
+    <section class="grid">
+        <div class="metric-card"><span>Clusters</span><strong>3</strong></div>
+        <div class="metric-card"><span>Silhouette</span><strong>0.2197</strong></div>
+        <div class="metric-card"><span>Davies-Bouldin</span><strong>1.5012</strong></div>
+        <div class="metric-card"><span>Calinski-Harabasz</span><strong>1294.7239</strong></div>
+    </section>
+
+    <h2>Executive Summary</h2>
+    <div class="card">
+        <p>
+            This project goes beyond a simple KMeans notebook. It builds an end-to-end segmentation
+            product: ingestion, entity detection, RFM feature engineering, clustering model competition,
+            statistical validation, segment interpretation, business recommendations, app generation and GitOps.
+        </p>
+        <p>
+            The result is a reusable customer intelligence system that can be rerun when the dataset changes.
+        </p>
+    </div>
+
+    <h2>Visual Diagnostics</h2>
+    <div class="charts">
+        
+        <div class="chart-card">
+            <h3>Cluster Map — PCA Projection</h3>
+            <img src="cluster_pca_map.png" alt="Cluster Map — PCA Projection">
+        </div>
+        
+        
+        <div class="chart-card">
+            <h3>RFM Segment Profile</h3>
+            <img src="cluster_rfm_profile.png" alt="RFM Segment Profile">
+        </div>
+        
+        
+        <div class="chart-card">
+            <h3>Cluster Size Distribution</h3>
+            <img src="cluster_sizes.png" alt="Cluster Size Distribution">
+        </div>
+        
+        
+        <div class="chart-card">
+            <h3>Cluster Feature Heatmap</h3>
+            <img src="cluster_feature_heatmap.png" alt="Cluster Feature Heatmap">
+        </div>
+        
+    </div>
+
+    <h2>Segment Profiles</h2>
+    <div class="segments">
+        
+        <div class="segment-card">
+            <div class="segment-header">
+                <span class="cluster-pill">Cluster 0</span>
+                <h3>Established Champions</h3>
+            </div>
+            <p class="segment-size">1,685 entities · 38.5%</p>
+            <p><strong>Persona:</strong> Long-tenured customers with high cumulative spend, large order volumes, and consistent transaction history. They represent the revenue backbone but show lower recent activity frequency.</p>
+            <p><strong>High drivers:</strong> customer_lifetime_days, total_quantity, total_revenue, n_transactions, n_orders</p>
+            <p><strong>Low drivers:</strong> frequency_per_month, recency_days</p>
+            <p><strong>Recommended action:</strong> Implement VIP retention program with dedicated account management, exclusive early access to new products, and quarterly business reviews to identify cross-sell opportunities and prevent churn.</p>
+            <p><strong>Opportunity:</strong> 38.5% of customer base with proven high lifetime value. Incremental frequency gains yield disproportionate revenue impact. Strong candidates for premium tier expansion and referral programs.</p>
+            <p><strong>Risk:</strong> Complacency leading to gradual disengagement. Lower frequency signals potential vulnerability to competitive offers despite strong historical performance.</p>
+        </div>
+        
+        <div class="segment-card">
+            <div class="segment-header">
+                <span class="cluster-pill">Cluster 1</span>
+                <h3>Dormant &amp; Occasional Buyers</h3>
+            </div>
+            <p class="segment-size">1,738 entities · 39.8%</p>
+            <p><strong>Persona:</strong> Recently active but sporadic customers with minimal transaction depth, low product engagement, and short relationship tenure. High recency suggests they haven&#x27;t churned but lack commitment.</p>
+            <p><strong>High drivers:</strong> frequency_per_month, recency_days</p>
+            <p><strong>Low drivers:</strong> customer_lifetime_days, n_transactions, product_diversity, total_quantity, total_revenue</p>
+            <p><strong>Recommended action:</strong> Deploy automated win-back campaigns with time-limited incentives (15-20% discount on next purchase) and personalized onboarding sequences to drive second and third purchases within 60 days.</p>
+            <p><strong>Opportunity:</strong> Large addressable segment for activation. Small behavioral nudges can convert to regular buyers. Test ground for new product launches and promotional strategies.</p>
+            <p><strong>Risk:</strong> High churn probability with minimal switching costs. Represents 39.8% of base but contributes disproportionately low revenue. Risk of inefficient marketing spend.</p>
+        </div>
+        
+        <div class="segment-card">
+            <div class="segment-header">
+                <span class="cluster-pill">Cluster 2</span>
+                <h3>Active Variety Seekers</h3>
+            </div>
+            <p class="segment-size">949 entities · 21.7%</p>
+            <p><strong>Persona:</strong> Frequent, recent buyers with high product diversity and multiple order lines, but lower average transaction values. They explore broadly across categories with smaller basket sizes.</p>
+            <p><strong>High drivers:</strong> frequency_per_month, avg_lines_per_order, product_diversity, n_transactions, recency_days</p>
+            <p><strong>Low drivers:</strong> customer_lifetime_days, median_revenue_per_line, avg_quantity, avg_revenue_per_line, revenue_per_product</p>
+            <p><strong>Recommended action:</strong> Launch bundling and volume discount strategies to increase basket size. Deploy AI-powered recommendation engine emphasizing complementary products and &#x27;complete the set&#x27; campaigns to drive revenue per transaction.</p>
+            <p><strong>Opportunity:</strong> 21.7% of base with strong engagement signals. High frequency and diversity indicate trust and habit formation. Significant headroom to increase average order value by 30-40% through strategic merchandising.</p>
+            <p><strong>Risk:</strong> Price-sensitive segment potentially driven by promotions rather than loyalty. May be cherry-picking deals across competitors. Lower margin profile due to small transaction values.</p>
+        </div>
+        
+    </div>
+
+    <h2>Hypothesis Validation</h2>
+    <div class="card">
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Test</th>
+                    <th>Verdict</th>
+                    <th>p-value</th>
+                    <th>Business Insight</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td>total_revenue</td>
+            <td>Kruskal-Wallis</td>
+            <td><span class="verdict true">TRUE</span></td>
+            <td>0</td>
+            <td>Cluster 0 has the highest median total_revenue; this feature helps explain segment behavior.</td>
+        </tr>
+        
+        <tr>
+            <td>n_orders</td>
+            <td>Kruskal-Wallis</td>
+            <td><span class="verdict true">TRUE</span></td>
+            <td>0</td>
+            <td>Cluster 0 has the highest median n_orders; this feature helps explain segment behavior.</td>
+        </tr>
+        
+        <tr>
+            <td>recency_days</td>
+            <td>Kruskal-Wallis</td>
+            <td><span class="verdict true">TRUE</span></td>
+            <td>5.216e-138</td>
+            <td>Cluster 1 has the highest median recency_days; this feature helps explain segment behavior.</td>
+        </tr>
+        
+        <tr>
+            <td>avg_order_value</td>
+            <td>Kruskal-Wallis</td>
+            <td><span class="verdict true">TRUE</span></td>
+            <td>8.421e-267</td>
+            <td>Cluster 0 has the highest median avg_order_value; this feature helps explain segment behavior.</td>
+        </tr>
+        
+        <tr>
+            <td>product_diversity</td>
+            <td>Kruskal-Wallis</td>
+            <td><span class="verdict true">TRUE</span></td>
+            <td>0</td>
+            <td>Cluster 0 has the highest median product_diversity; this feature helps explain segment behavior.</td>
+        </tr>
+        
+        <tr>
+            <td>return_rate</td>
+            <td>Kruskal-Wallis</td>
+            <td><span class="verdict true">TRUE</span></td>
+            <td>1.947e-101</td>
+            <td>Cluster 0 has the highest median return_rate; this feature helps explain segment behavior.</td>
+        </tr>
+        
+        <tr>
+            <td>frequency_per_month</td>
+            <td>Kruskal-Wallis</td>
+            <td><span class="verdict true">TRUE</span></td>
+            <td>1.516e-66</td>
+            <td>Cluster 1 has the highest median frequency_per_month; this feature helps explain segment behavior.</td>
+        </tr>
+        
+        <tr>
+            <td>total_quantity</td>
+            <td>Kruskal-Wallis</td>
+            <td><span class="verdict true">TRUE</span></td>
+            <td>0</td>
+            <td>Cluster 0 has the highest median total_quantity; this feature helps explain segment behavior.</td>
+        </tr>
+        
+        <tr>
+            <td>customerid</td>
+            <td>Kruskal-Wallis</td>
+            <td><span class="verdict true">TRUE</span></td>
+            <td>4.689e-29</td>
+            <td>Cluster 2 has the highest median customerid; this feature helps explain segment behavior.</td>
+        </tr>
+        
+        <tr>
+            <td>n_transactions</td>
+            <td>Kruskal-Wallis</td>
+            <td><span class="verdict true">TRUE</span></td>
+            <td>0</td>
+            <td>Cluster 0 has the highest median n_transactions; this feature helps explain segment behavior.</td>
+        </tr>
+        
+        <tr>
+            <td>avg_revenue_per_line</td>
+            <td>Kruskal-Wallis</td>
+            <td><span class="verdict true">TRUE</span></td>
+            <td>0</td>
+            <td>Cluster 0 has the highest median avg_revenue_per_line; this feature helps explain segment behavior.</td>
+        </tr>
+        
+        <tr>
+            <td>median_revenue_per_line</td>
+            <td>Kruskal-Wallis</td>
+            <td><span class="verdict true">TRUE</span></td>
+            <td>0</td>
+            <td>Cluster 0 has the highest median median_revenue_per_line; this feature helps explain segment behavior.</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Detected Entity Configuration</h2>
+    <pre>{
+  &quot;entity_col&quot;: &quot;customerid&quot;,
+  &quot;invoice_col&quot;: &quot;invoiceno&quot;,
+  &quot;date_col&quot;: &quot;invoicedate&quot;,
+  &quot;quantity_col&quot;: &quot;quantity&quot;,
+  &quot;price_col&quot;: &quot;unitprice&quot;,
+  &quot;product_col&quot;: &quot;stockcode&quot;,
+  &quot;country_col&quot;: &quot;country&quot;,
+  &quot;monetary_cols&quot;: [
+    &quot;quantity&quot;,
+    &quot;unitprice&quot;
+  ],
+  &quot;clustering_unit&quot;: &quot;customer&quot;,
+  &quot;strategy&quot;: &quot;Customer-level segmentation for RGM analytics. 4372 unique customers provide sufficient granularity for behavioral segmentation. Will aggregate transaction data to create RFM features (recency, frequency, monetary), product affinity, geographic patterns, and purchase behavior metrics. 25% null customerid requires handling (exclude or separate segment). Negative quantities indicate returns - important feature for churn/satisfaction analysis.&quot;
+}</pre>
+
+    <h2>Best Model Details</h2>
+    <pre>{
+  &quot;algorithm&quot;: &quot;kmeans&quot;,
+  &quot;model_name&quot;: &quot;KMeans k=3&quot;,
+  &quot;n_clusters&quot;: 3,
+  &quot;noise_pct&quot;: 0.0,
+  &quot;min_cluster_pct&quot;: 0.2171,
+  &quot;is_valid&quot;: true,
+  &quot;cluster_distribution&quot;: {
+    &quot;1&quot;: 0.3975,
+    &quot;0&quot;: 0.3854,
+    &quot;2&quot;: 0.2171
+  },
+  &quot;silhouette&quot;: 0.2197,
+  &quot;davies_bouldin&quot;: 1.5012,
+  &quot;calinski_harabasz&quot;: 1294.7239,
+  &quot;model_key&quot;: &quot;kmeans_3&quot;,
+  &quot;sil_score&quot;: 0.9944961896697714,
+  &quot;db_score&quot;: 0.9644376298348006,
+  &quot;ch_score&quot;: 0.9735679501856048,
+  &quot;size_score&quot;: 1.0,
+  &quot;k_score&quot;: 1.0,
+  &quot;business_score&quot;: 0.9869963848792208
+}</pre>
+
+    <h2>How to Use</h2>
+    <div class="card">
+        <p>
+            This static dashboard can be opened directly in any browser or published with GitHub Pages.
+            For deeper interaction, the pipeline also generates a Streamlit app:
+        </p>
+        <pre>streamlit run unsupervised_outputs/streamlit_segment_app.py</pre>
+    </div>
+
+    <div class="footer">
+        Generated automatically by Auto Segmenter AI v2.2.
+    </div>
+</div>
+</body>
+</html>
