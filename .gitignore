@@ -11,3 +11,7 @@ __pycache__/
 unsupervised_outputs/*.parquet
 unsupervised_outputs/*.csv
 unsupervised_outputs/*.pkl
+.venv/
+venv/
+.ipynb_checkpoints/
+unsupervised_outputs/*.xlsx

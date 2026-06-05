@@ -49,18 +49,18 @@ for cid in cluster_options:
         "size_pct": f"{(clustered['cluster'] == cid).mean():.1%}",
         "recommended_action": s.get("recommended_action", ""),
     })
-st.dataframe(pd.DataFrame(summary_rows), use_container_width=True)
+st.dataframe(pd.DataFrame(summary_rows), width="stretch")
 
 left, right = st.columns(2)
 with left:
     counts = filtered["cluster"].value_counts().reset_index()
     counts.columns = ["cluster", "count"]
-    st.plotly_chart(px.bar(counts, x="cluster", y="count", title="Cluster Sizes"), use_container_width=True)
+    st.plotly_chart(px.bar(counts, x="cluster", y="count", title="Cluster Sizes"), width="stretch")
 with right:
     numeric_cols = [c for c in filtered.select_dtypes(include="number").columns if c != "cluster"]
     y_col = "total_revenue" if "total_revenue" in numeric_cols else numeric_cols[0] if numeric_cols else None
     if y_col:
-        st.plotly_chart(px.box(filtered, x="cluster", y=y_col, title=f"{y_col} by Cluster"), use_container_width=True)
+        st.plotly_chart(px.box(filtered, x="cluster", y=y_col, title=f"{y_col} by Cluster"), width="stretch")
 
 st.subheader("Segment Deep Dive")
 selected = st.selectbox("Choose a cluster", cluster_options)
@@ -74,7 +74,7 @@ if seg.get("business_risk"):
     st.warning("Risk: " + seg["business_risk"])
 
 cluster_data = clustered[clustered["cluster"] == selected]
-st.dataframe(cluster_data.head(100), use_container_width=True)
+st.dataframe(cluster_data.head(100), width="stretch")
 
 st.subheader("Model Selection")
 if metrics.get("best_model"):

@@ -5,23 +5,23 @@
 **Entities clustered:** 4,372
 
 ## Executive Summary
-Customer base shows clear three-tier structure requiring differentiated RGM strategies. **Established Champions (38.5%)** are revenue foundation but showing frequency warning signs—prioritize retention and relationship deepening. **Dormant Prospects (39.8%)** represent the largest segment with lowest engagement—focus on cost-efficient activation and churn prevention. **Active Explorers (21.7%)** demonstrate strong behavioral loyalty but low wallet share per transaction—optimize for margin expansion through strategic upselling. Immediate priority: prevent Champion erosion while activating the large Dormant base. Quick win: bundle campaigns for Explorers can drive near-term AOV lift.
+Customer base shows clear three-tier structure: 38.5% are high-value veterans requiring retention focus, 39.8% are low-engagement prospects needing cost-effective activation, and 21.7% are active explorers ready for margin optimization. Priority actions: (1) Protect Champion revenue with VIP programs, (2) Activate Dormant Prospects through automated low-cost campaigns, (3) Upgrade Variety Seekers to premium products via personalized bundling. Combined approach addresses 100% of base with segment-specific ROI targets.
 
 ## Cluster 0 — Established Champions
 
 - Size: **1,685** (38.5%)
 
-- Persona: Long-tenured customers with high cumulative spend and transaction volume, but lower recent activity frequency. These are your legacy revenue pillars.
+- Persona: Long-tenured customers with high cumulative revenue, large order volumes, and consistent transaction history. They represent the revenue backbone but show lower recent activity frequency.
 
 - High drivers: customer_lifetime_days, total_quantity, total_revenue, n_transactions, n_orders
 
 - Low drivers: frequency_per_month, recency_days
 
-- Recommended action: **Launch quarterly executive business reviews and dedicated account management to prevent attrition. Implement early warning system for frequency decline and create VIP reactivation offers for those showing 30+ day gaps.**
+- Recommended action: **Implement VIP retention program with dedicated account management, exclusive early access to new products, and quarterly business reviews to identify cross-sell opportunities and prevent churn.**
 
-- Business risk: Complacency leading to silent churn of high-LTV customers. Low frequency signals potential disengagement despite strong history.
+- Business risk: Complacency leading to gradual disengagement. Lower frequency signals potential vulnerability to competitive offers despite strong historical performance.
 
-- Business opportunity: 38.5% of base represents proven buyers with established trust. High potential for premium tier upgrades, annual contracts, and referral programs.
+- Business opportunity: 38.5% of customer base with proven spending capacity. High potential for wallet share expansion through strategic upselling and premium tier migration.
 
 
 Key metrics:
@@ -45,17 +45,17 @@ customer_lifetime_days  186.0000             5.812
 
 - Size: **1,738** (39.8%)
 
-- Persona: Recent but infrequent buyers with minimal transaction history and low product engagement. High recency suggests they haven't churned yet but never fully activated.
+- Persona: Recently acquired or inactive customers with minimal transaction history, low product engagement, and limited revenue contribution. High recency indicates recent but infrequent touchpoints.
 
 - High drivers: frequency_per_month, recency_days
 
 - Low drivers: customer_lifetime_days, n_transactions, product_diversity, total_quantity, total_revenue
 
-- Recommended action: **Deploy automated 3-touch onboarding sequence with educational content and first-purchase incentives. Implement win-back campaigns for those 60+ days inactive. Avoid heavy discounting—focus on value demonstration.**
+- Recommended action: **Deploy automated win-back campaigns with time-limited activation offers (15-20% discount on next purchase). Use email and digital channels to minimize cost while testing product-market fit.**
 
-- Business risk: Largest segment (39.8%) with weakest engagement metrics. High probability of permanent churn without intervention.
+- Business risk: High churn probability with minimal revenue impact. Risk of wasting resources on customers with low lifetime value potential.
 
-- Business opportunity: Untapped volume play. Even modest conversion improvements yield significant revenue given segment size. Low acquisition cost already sunk.
+- Business opportunity: Largest segment at 39.8% - successful activation of even 10-15% could significantly impact revenue growth. Low-cost testing ground for onboarding optimization.
 
 
 Key metrics:
@@ -73,21 +73,21 @@ customer_lifetime_days   1.0000             0.031
    frequency_per_month  30.0000             6.400
 
 
-## Cluster 2 — Active Explorers
+## Cluster 2 — Active Variety Seekers
 
 - Size: **949** (21.7%)
 
-- Persona: Frequent, recent buyers with high product diversity and basket complexity, but lower per-item spend. They shop often across categories but favor volume over premium items.
+- Persona: Highly engaged customers who frequently purchase across multiple product categories with diverse basket composition, but favor lower-priced items. Recent activity indicates strong current engagement.
 
 - High drivers: frequency_per_month, avg_lines_per_order, product_diversity, n_transactions, recency_days
 
 - Low drivers: customer_lifetime_days, median_revenue_per_line, avg_quantity, avg_revenue_per_line, revenue_per_product
 
-- Recommended action: **Prioritize for cross-sell and bundle campaigns targeting premium SKU migration. Use personalized recommendations based on browsing behavior. Test 'complete the collection' and tiered loyalty rewards to increase AOV.**
+- Recommended action: **Launch targeted bundle campaigns pairing their preferred categories with higher-margin products. Use personalized recommendations to drive premium product trial and increase average order value.**
 
-- Business risk: Price-sensitive segment may be vulnerable to competitive promotions. Low revenue per line suggests margin pressure.
+- Business risk: Price-sensitive behavior may limit margin expansion. High activity with low per-item spend suggests deal-seeking mentality.
 
-- Business opportunity: 21.7% of customers showing strong engagement signals. High visit frequency creates multiple conversion moments. Upsell potential to shift mix toward higher-margin products.
+- Business opportunity: 21.7% segment with proven engagement and category exploration behavior. Strong candidates for premium product education and value-based upselling to improve revenue quality.
 
 
 Key metrics:

@@ -1,19 +1,84 @@
-# Auto Segmenter AI — Multi-Agent Unsupervised Learning
+# Auto Segmenter AI — Multi-Agent Unsupervised Learning Pipeline
 
-> Portfolio project: **Customer Segmentation & Revenue Growth Intelligence**
+> **Portfolio Project:** Customer Segmentation & Revenue Growth Intelligence
 
-This project adapts the previous Auto Data Scientist idea from supervised AutoML into an unsupervised learning product.
-Instead of predicting a target, the pipeline discovers natural customer/entity segments and translates them into business actions.
+## Executive Summary
 
-## Business Goal
-Identify behavior-based segments that can support RGM, retention, cross-sell, discount strategy and campaign prioritization.
+Retail and e-commerce businesses generate thousands of transactions, but most behavioral data remains underused for customer strategy. This project solves that gap by building a **multi-agent unsupervised learning pipeline** that transforms raw transactional data into customer-level intelligence.
 
-## Dataset
-- Kaggle slug: `hellbuoy/online-retail-customer-clustering`
-- URL: https://www.kaggle.com/datasets/hellbuoy/online-retail-customer-clustering
-- Local path: `None`
+The pipeline automatically ingests data, detects the segmentation entity, engineers RFM and behavioral features, compares multiple clustering algorithms, selects the best segmentation strategy, interprets each segment in business language, validates segment hypotheses, and generates a portfolio-ready Streamlit app, notebook and README.
 
-## Detected Entity Configuration
+The final output is not only a clustering model. It is a complete decision-support product for **Revenue Growth Management**, supporting actions such as retention, cross-sell, discount control, lifecycle campaigns and customer prioritization.
+
+---
+
+## 1. Project Result
+
+| Item | Result |
+|---|---|
+| Learning type | Unsupervised Learning |
+| Business objective | Customer segmentation for Revenue Growth Intelligence |
+| Dataset | `hellbuoy/online-retail-customer-clustering` |
+| Raw data processed | 541,909 rows |
+| Feature table | 4,372 entities × 23 features |
+| Clustered entities | 4,372 entities |
+| Best model | KMeans k=3 |
+| Number of clusters | 3 |
+| Silhouette Score | 0.2197 |
+| Davies-Bouldin | 1.5012 |
+| Calinski-Harabasz | 1294.7239 |
+| Output | Segment profiles, business strategy, hypothesis validation, Streamlit app and notebook |
+
+---
+
+## 2. Pipeline Architecture
+
+```text
+Kaggle / Local Dataset
+        │
+        ▼
+┌──────────────────┐
+│ 1. Ingestor      │  Standardizes raw data and saves the silver layer
+└────────┬─────────┘
+         ▼
+┌──────────────────┐
+│ 2. Data Profiler │  Detects entity, date, monetary and product columns
+└────────┬─────────┘
+         ▼
+┌──────────────────────┐
+│ 3. Feature Engineer  │  Builds RFM and behavioral customer features
+└────────┬─────────────┘
+         ▼
+┌──────────────────────┐
+│ 4. Clustering Agent  │  Tests KMeans, GMM, Agglomerative and DBSCAN
+└────────┬─────────────┘
+         ▼
+┌────────────────────────┐
+│ 5. Segment Interpreter │  Converts clusters into business personas/actions
+└────────┬───────────────┘
+         ▼
+┌────────────────────────┐
+│ 6. Hypothesis Agent    │  Validates if segments differ statistically
+└────────┬───────────────┘
+         ▼
+┌────────────────────────┐
+│ 7. Deliverable Agent   │  Generates app, notebook, README and reports
+└────────┬───────────────┘
+         ▼
+┌────────────────────────┐
+│ 8. GitOps Agent        │  Cleans repo, prepares README and optionally pushes
+└────────────────────────┘
+```
+
+---
+
+## 3. Dataset
+
+- **Kaggle slug:** `hellbuoy/online-retail-customer-clustering`
+- **URL:** https://www.kaggle.com/datasets/hellbuoy/online-retail-customer-clustering
+- **Local path:** `None`
+- **Detected entity configuration:**
+
 ```json
 {
   "entity_col": "customerid",
@@ -28,47 +93,134 @@ Identify behavior-based segments that can support RGM, retention, cross-sell, di
     "unitprice"
   ],
   "clustering_unit": "customer",
-  "strategy": "Customer-level segmentation for RGM analytics. With 4372 unique customers and transactional data spanning invoices, products, and geography, we can derive RFM features (recency, frequency, monetary), basket composition, product diversity, geographic concentration, and return behavior (negative quantities indicate returns). This enables actionable customer segments for prioritized commercial actions and revenue optimization."
+  "strategy": "Customer-level segmentation for RGM analytics. 4372 unique customers provide sufficient granularity for behavioral segmentation. Will aggregate transaction data to create RFM features (recency, frequency, monetary), product diversity, return behavior (negative quantities), and geographic patterns. 25% null customerid requires handling - exclude from clustering or impute based on invoice patterns. Focus on revenue drivers and purchase patterns to enable targeted commercial actions."
 }
 ```
 
-## Best Clustering Model
-```json
-{
-  "algorithm": "kmeans",
-  "model_name": "KMeans k=3",
-  "n_clusters": 3,
-  "noise_pct": 0.0,
-  "min_cluster_pct": 0.2171,
-  "is_valid": true,
-  "cluster_distribution": {
-    "1": 0.3975,
-    "0": 0.3854,
-    "2": 0.2171
-  },
-  "silhouette": 0.2197,
-  "davies_bouldin": 1.5012,
-  "calinski_harabasz": 1294.7239,
-  "model_key": "kmeans_3",
-  "sil_score": 0.9944961896697714,
-  "db_score": 0.9644376298348006,
-  "ch_score": 0.9735679501856048,
-  "size_score": 1.0,
-  "k_score": 1.0,
-  "business_score": 0.9869963848792208
-}
+---
+
+## 4. Customer-Level Feature Engineering
+
+The pipeline converts transaction-level data into an entity-level analytical table.
+
+Examples of generated features:
+
+- `n_transactions`
+- `n_orders`
+- `total_revenue`
+- `avg_order_value`
+- `recency_days`
+- `customer_lifetime_days`
+- `frequency_per_month`
+- `product_diversity`
+- `return_rate`
+- `monetary_log`
+- `frequency_log`
+- `recency_log`
+
+This makes the clustering more meaningful because the model is not grouping raw rows; it is grouping customer behavior.
+
+---
+
+## 5. Clustering Strategy
+
+The pipeline compares multiple unsupervised algorithms:
+
+- **KMeans**
+- **Gaussian Mixture Models**
+- **Agglomerative Clustering**
+- **DBSCAN**
+
+Model selection is based on a weighted ranking using:
+
+- Silhouette Score
+- Davies-Bouldin Index
+- Calinski-Harabasz Score
+- Minimum cluster size
+- Business interpretability of the number of clusters
+
+### Top Model Candidates
+
+            Model  Clusters  Silhouette  Davies-Bouldin  Calinski-Harabasz  Business Score
+       KMeans k=3         3      0.2197          1.5012          1294.7239          0.9870
+       KMeans k=4         4      0.2210          1.4293          1178.0069          0.9372
+Agglomerative k=2         2      0.2194          1.5199          1123.9470          0.9256
+       KMeans k=2         2      0.2076          1.6717          1347.1366          0.9112
+Agglomerative k=3         3      0.1851          1.7274          1084.2550          0.8956
+       KMeans k=5         5      0.1879          1.4486          1078.6873          0.8667
+Agglomerative k=4         4      0.1799          1.6702           934.0477          0.8213
+Agglomerative k=5         5      0.1323          1.7062           844.5064          0.7371
+
+---
+
+## 6. Segment Interpretation
+
+The model output is translated into business-friendly segments and actions.
+
+ Cluster                Segment  Size Size %                                                                                                                                                                                 Recommended Action
+       0  Established Champions 1,685  38.5%  Implement VIP retention program with dedicated account management, exclusive early access to new products, and quarterly business reviews to identify cross-sell opportunities and prevent churn.
+       1      Dormant Prospects 1,738  39.8%      Deploy automated win-back campaigns with time-limited activation offers (15-20% discount on next purchase). Use email and digital channels to minimize cost while testing product-market fit.
+       2 Active Variety Seekers   949  21.7% Launch targeted bundle campaigns pairing their preferred categories with higher-margin products. Use personalized recommendations to drive premium product trial and increase average order value.
+
+The objective is to move beyond “Cluster 0, Cluster 1, Cluster 2” and generate usable segment intelligence for business teams.
+
+---
+
+## 7. Business Impact
+
+This project converts unsupervised machine learning into actions:
+
+- Identify high-value customers for loyalty and VIP campaigns.
+- Detect low-frequency or at-risk customers for retention strategies.
+- Separate low-engagement customers from high-potential buyers.
+- Prioritize cross-sell and product recommendation strategies by segment.
+- Support Revenue Growth Management decisions with explainable customer groups.
+- Create a reusable segmentation engine that can be rerun when the dataset changes.
+
+---
+
+## 8. Visual Outputs
+
+### Cluster Map — PCA Projection
+
+![Cluster PCA Map](cluster_pca_map.png)
+
+### RFM Segment Profile
+
+![Cluster RFM Profile](cluster_rfm_profile.png)
+
+### Cluster Size Distribution
+
+![Cluster Sizes](cluster_sizes.png)
+
+### Feature Heatmap
+
+![Cluster Feature Heatmap](cluster_feature_heatmap.png)
+
+---
+
+## 9. Streamlit App
+
+The pipeline generates an interactive Streamlit app for segment exploration.
+
+Run locally:
+
+```bash
+streamlit run streamlit_segment_app.py
 ```
 
-## Pipeline Architecture
-1. **Ingestor** — downloads/loads data and saves `df1_silver.parquet`.
-2. **Data Profiler** — detects entity, date, order, price, quantity and product columns.
-3. **Feature Engineer** — creates RFM/entity features.
-4. **Clustering Scientist** — tests KMeans, Gaussian Mixture, Agglomerative and DBSCAN.
-5. **Segment Interpreter** — profiles segments and optionally uses Claude to create business names/actions.
-6. **Hypothesis Validator** — tests whether clusters differ statistically on business variables.
-7. **Deliverable Generator** — creates Streamlit app, notebook and README.
+The app allows users to:
 
-## Output Files
+- Filter clusters
+- Compare segment sizes
+- Inspect segment-level metrics
+- Read business recommendations
+- Download the final clustered customer table
+
+---
+
+## 10. Output Files
+
 | File | Description |
 |---|---|
 | `df1_silver.parquet` | Clean standardized raw table |
@@ -78,15 +230,96 @@ Identify behavior-based segments that can support RGM, retention, cross-sell, di
 | `cluster_metrics.json` | Model comparison and chosen model |
 | `Segment_Profiles.md` | Business explanation of each segment |
 | `Business_Strategy.md` | Recommended actions by segment |
-| `streamlit_segment_app.py` | Interactive app |
-| `analysis_notebook_unsupervised.ipynb` | Notebook for GitHub/portfolio |
+| `Segment_Hypothesis_Validation.md` | Statistical validation of segment differences |
+| `streamlit_segment_app.py` | Interactive Streamlit app |
+| `analysis_notebook_unsupervised.ipynb` | Reproducible notebook |
+| `README_unsupervised.md` | Generated project documentation |
 
-## How to Run
+---
+
+## 11. How to Reproduce
+
+Install dependencies:
+
 ```bash
 pip install -r requirements_unsupervised.txt
-python multi_agent_ds_unsupervised_v1.py
-streamlit run streamlit_segment_app.py
 ```
 
-## Why This Matters
-Most unsupervised projects stop at K-Means. This project goes further by combining feature engineering, clustering competition, statistical validation, GenAI interpretation and a deployable app.
+Run with the default Kaggle dataset:
+
+```bash
+python multi_agent_ds_unsupervised_v1.py
+```
+
+Run with another Kaggle dataset:
+
+```bash
+python multi_agent_ds_unsupervised_v1.py --dataset-slug "your/kaggle-dataset"
+```
+
+Run with a local file:
+
+```bash
+python multi_agent_ds_unsupervised_v1.py --local-path "data.csv"
+```
+
+Run without Anthropic/Claude:
+
+```bash
+python multi_agent_ds_unsupervised_v1.py --no-ai
+```
+
+Run and push the updated project to GitHub:
+
+```bash
+python multi_agent_ds_unsupervised_v1.py --dataset-slug "your/kaggle-dataset" --git-push
+```
+
+---
+
+## 12. GitOps Agent
+
+The GitOps Agent prepares the repository after every pipeline run:
+
+- Creates/updates `.gitignore`
+- Copies the generated README to root `README.md`
+- Prevents `.venv`, `.env`, parquet files and local artifacts from being tracked
+- Runs `git add`, `git commit` and optionally `git push`
+
+This allows the project to be refreshed whenever the dataset changes.
+
+---
+
+## 13. Limitations and Next Steps
+
+Current limitations:
+
+- Clustering quality depends strongly on the available behavioral features.
+- Silhouette Score may be modest in real customer data because behavioral segments often overlap.
+- Business validation still requires campaign testing and stakeholder review.
+- Margin, promotion, channel and customer demographic data would improve RGM recommendations.
+
+Next improvements:
+
+- Add UMAP visualization.
+- Add customer migration tracking over time.
+- Add margin-aware segmentation.
+- Add automated campaign simulation.
+- Add CRM-ready output tables.
+- Add deployment to Streamlit Cloud.
+
+---
+
+## Why This Project Matters
+
+Most unsupervised learning projects stop at KMeans. This project goes further by combining:
+
+- automated feature engineering,
+- clustering model competition,
+- statistical validation,
+- GenAI-powered segment interpretation,
+- business strategy generation,
+- Streamlit delivery,
+- GitOps automation.
+
+The result is a reusable **multi-agent customer intelligence system** instead of a one-off clustering notebook.
